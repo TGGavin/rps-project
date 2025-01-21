@@ -29,11 +29,18 @@
             humanChoice === "paper" && pcChoice === "rock" ||
             humanChoice === "scissors" && pcChoice === "paper"
         ) {
-            return ++humanScore
+            console.log(`You win ${humanChoice} beats ${pcChoice}`);
+            return humanScore++
         } else {
-            return ++pcScore
+            console.log(`you lose ${pcChoice} beats ${humanChoice}`);
+            return pcScore++
         }
     }
+
+    const humanSelection = getHumanChoice();
+    const pcSelection = getComputerChoice();
+
+    playRound(humanSelection, pcSelection);
 </script>
 </body>
 </html>
