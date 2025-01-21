@@ -11,7 +11,26 @@
 <body>
 
 <script>
+    
+    function getComputerChoice() {
+    const rpsArray = ["Rock", "Paper", "Scissors"]
+    const randNum = Math.floor(Math.random() * 3)
+    return rpsArray[randNum];
+    }
+    
+    function getHumanChoice() {
+    let prompto = prompt("Choose Wisdom")
+    let processedPromto = prompto.charAt(0).toUpperCase() // this feels dumb here
+    let sliced = prompto.slice(1)
+    const playerChoice = processedPromto + sliced
+    return playerChoice;
+    }
 
+    humanScore = 0
+    pcScore = 0
+    function playRound(humanChoice, playerChoice) {
+
+    }
 </script>
 </body>
 </html>
