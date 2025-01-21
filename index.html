@@ -29,9 +29,9 @@
             humanChoice === "paper" && pcChoice === "rock" ||
             humanChoice === "scissors" && pcChoice === "paper"
         ) {
-            return "You Win!"
+            return ++humanScore
         } else {
-            return "CONGRATS YOU LOSE"
+            return ++pcScore
         }
     }
 </script>
