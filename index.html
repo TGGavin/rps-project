@@ -24,8 +24,15 @@
     
     humanScore = 0
     pcScore = 0
-    function playRound(humanChoice, playerChoice) {
-
+    function playRound(humanChoice, pcChoice) {
+        if ( humanChoice === "rock" &&  pcChoice === "scissors" ||
+            humanChoice === "paper" && pcChoice === "rock" ||
+            humanChoice === "scissors" && pcChoice === "paper"
+        ) {
+            return "You Win!"
+        } else {
+            return "CONGRATS YOU LOSE"
+        }
     }
 </script>
 </body>
