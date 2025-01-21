@@ -13,19 +13,15 @@
 <script>
     
     function getComputerChoice() {
-    const rpsArray = ["Rock", "Paper", "Scissors"]
+    const rpsArray = ["rock", "paper", "scissors"]
     const randNum = Math.floor(Math.random() * 3)
     return rpsArray[randNum];
     }
     
-    function getHumanChoice() {
-    let prompto = prompt("Choose Wisdom")
-    let processedPromto = prompto.charAt(0).toUpperCase() // this feels dumb here
-    let sliced = prompto.slice(1)
-    const playerChoice = processedPromto + sliced
-    return playerChoice;
+    function getHumanChoice() { 
+        return prompt("Choose wisely").toLowerCase()
     }
-
+    
     humanScore = 0
     pcScore = 0
     function playRound(humanChoice, playerChoice) {
