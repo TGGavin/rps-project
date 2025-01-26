@@ -8,7 +8,11 @@
 </style>
 </head>
 <body>
-
+    <div id="rps-menu">
+<button>Rock</button> 
+<button>Paper</button>
+<button>Scissors</button>
+</div>
 <script>
     function getComputerChoice() {
     const rpsArray = ["rock", "paper", "scissors"]
@@ -17,7 +21,7 @@
     }
     
     function getHumanChoice() { 
-        return prompt("Choose wisely").toLowerCase()
+    return prompt("Choose wisely").toLowerCase()
     }
     
     humanScore = 0
@@ -38,10 +42,10 @@
         }
     }
 
-    const humanSelection = getHumanChoice();
-    const pcSelection = getComputerChoice();
+    // const humanSelection = getHumanChoice();
+    // const pcSelection = getComputerChoice();
 
-    playRound(humanSelection, pcSelection);
+    // playRound(humanSelection, pcSelection);
 
 </script>
 </body>
