@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
 <style>
+    #rps-menu {
+        display: flex;
+        justify-content: center;
+        padding: 350px 0px 350px 0px;
+    }
+
+    #rps-menu > button {
+        width: 200px;
+        height: 100px;
+        font-size: 50px;
+    }
 </style>
 </head>
 <body>
@@ -14,6 +25,7 @@
 <button>Scissors</button>
 </div>
 <script>
+    
     function getComputerChoice() {
     const rpsArray = ["rock", "paper", "scissors"]
     const randNum = Math.floor(Math.random() * 3)
