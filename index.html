@@ -8,7 +8,7 @@
     #rps-menu {
         display: flex;
         justify-content: center;
-        padding: 350px 0px 350px 0px;
+        padding: 150px 0px 350px 0px;
     }
 
     #rps-menu > button {
@@ -16,14 +16,37 @@
         height: 100px;
         font-size: 50px;
     }
+
+    #score-board {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #human-score-board, #computer-score-board {
+        font-size: 60px;
+        padding: 60px;
+    }
+
+    .score-counters {
+        font-size: 60px;
+        display: flex;
+    }
 </style>
 </head>
 <body>
 
-    <div id="score-holder">
-        <span id="human-score"></span>
-        <span id="computer-score"></span>
+    <div id="score-board">
+        <div class="score-counters">
+        <p>Your Score:</p>
+        <span id="human-score-board">0</span>
+        </div>
+        <div class="score-counters">
+        <p>Computer Score:</p>
+        <span id="computer-score-board">0</span>
+        </div>
     </div>
+
+    <span id="game-output">placeholder</span>
 
 <div id="rps-menu">
     <button id="rock-btn">Rock</button> 
@@ -32,6 +55,8 @@
 </div>
 
 <script>
+    const gameOutput = document.querySelector("#game-output")
+
     const scissors = document.querySelector("#scissors-btn")
     const paper = document.querySelector("#paper-btn")
     const rock = document.querySelector("#rock-btn")
@@ -63,29 +88,38 @@
     return rpsArray[randNum];
     }
     
-    humanScore = 0
-    pcScore = 0
+
     function playRound(humanChoice, pcChoice) {
         if ( humanChoice === "rock" &&  pcChoice === "scissors" ||
             humanChoice === "paper" && pcChoice === "rock" ||
             humanChoice === "scissors" && pcChoice === "paper"
         ) {
             console.log(`You win ${humanChoice} beats ${pcChoice}`);
-            return humanScore++
+            humanScore++
+            scoreUpdate()
+            return 
         } else if (humanChoice === pcChoice) {
             console.log("tie")
             return
         } else {
             console.log(`you lose ${pcChoice} beats ${humanChoice}`);
-            return pcScore++
+            pcScore++
+            scoreUpdate()
+            return 
         }
     }
+    
+    const humanScoreVis = document.querySelector("#human-score-board")
+    const pcScoreVis = document.querySelector("#computer-score-board")
 
-    //const humanSelection = getHumanChoice();
-    //const pcSelection = getComputerChoice();
+    humanScore = 0 
+    pcScore = 0
 
-    // playRound(humanSelection, pcSelection);
-
+    function scoreUpdate() {
+    humanScoreVis.textContent = humanScore
+    pcScoreVis.textContent = pcScore
+    }
+    //make a loop that changes the score
 </script>
 </body>
 </html>
