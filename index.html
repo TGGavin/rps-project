@@ -61,7 +61,7 @@
 </div>
 
 <script>
-    const gameOutput = document.querySelector("#game-output")
+ 
 
     const scissors = document.querySelector("#scissors-btn")
     const paper = document.querySelector("#paper-btn")
@@ -94,6 +94,8 @@
     return rpsArray[randNum];
     }
     
+    const gameOutput = document.querySelector("#game-output")
+
     function playRound(humanChoice, pcChoice) {
 
         if ( humanChoice === "Rock" &&  pcChoice === "Scissors" ||
@@ -103,6 +105,7 @@
             gameOutput.textContent = `You win ${humanChoice} beats ${pcChoice}`;
             humanScore++
             scoreUpdate()
+            gameOver()
             return 
         } else if (humanChoice === pcChoice) {
             gameOutput.textContent = "Tie"
@@ -111,6 +114,7 @@
             gameOutput.textContent = `You lose ${pcChoice} beats ${humanChoice}`;
             pcScore++
             scoreUpdate()
+            gameOver()
             return 
         }
     }
@@ -125,7 +129,23 @@
     humanScoreVis.textContent = humanScore
     pcScoreVis.textContent = pcScore
     }
-    //make a loop that changes the score
+
+    function gameOver() {
+            if (humanScore === 5) {
+            gameOutput.textContent = "You win! press a button again to begin new round"
+            humanScore = 0
+            pcScore = 0
+            scoreUpdate()
+            return;
+     } else if (pcScore === 5) {
+            gameOutput.textContent = "You lose! press a button again to begin new round"
+            humanScore = 0
+            pcScore = 0
+            scoreUpdate()
+            return;
+    }
+    return;
+    }
 </script>
 </body>
 </html>
