@@ -8,7 +8,7 @@
     #rps-menu {
         display: flex;
         justify-content: center;
-        padding: 150px 0px 350px 0px;
+        padding: 100px 0px 350px 0px;
     }
 
     #rps-menu > button {
@@ -31,6 +31,12 @@
         font-size: 60px;
         display: flex;
     }
+
+    #game-output {
+        font-size: 50px;
+        display: flex;
+        justify-self: center;
+    }
 </style>
 </head>
 <body>
@@ -46,7 +52,7 @@
         </div>
     </div>
 
-    <span id="game-output">placeholder</span>
+    <span id="game-output">Press a button to select your choice</span>
 
 <div id="rps-menu">
     <button id="rock-btn">Rock</button> 
@@ -66,43 +72,43 @@
     // No caught errors, yet does not execute code
     scissors.addEventListener("click", (e) => {
         let pcSelection = getComputerChoice()
-        let humanSelection = "scissors"
+        let humanSelection = "Scissors"
         playRound(humanSelection, pcSelection)
     })
 
     paper.addEventListener("click", (e) => {
         let pcSelection = getComputerChoice()
-        let humanSelection = "paper"
+        let humanSelection = "Paper"
         playRound(humanSelection, pcSelection)
     })
 
     rock.addEventListener("click", (e) => {
         let pcSelection = getComputerChoice()
-        let humanSelection = "rock"
+        let humanSelection = "Rock"
         playRound(humanSelection, pcSelection)
     })
 
     function getComputerChoice() {
-    const rpsArray = ["rock", "paper", "scissors"]
+    const rpsArray = ["Rock", "Paper", "Scissors"]
     const randNum = Math.floor(Math.random() * 3)
     return rpsArray[randNum];
     }
     
-
     function playRound(humanChoice, pcChoice) {
-        if ( humanChoice === "rock" &&  pcChoice === "scissors" ||
-            humanChoice === "paper" && pcChoice === "rock" ||
-            humanChoice === "scissors" && pcChoice === "paper"
+
+        if ( humanChoice === "Rock" &&  pcChoice === "Scissors" ||
+            humanChoice === "Paper" && pcChoice === "Rock" ||
+            humanChoice === "Scissors" && pcChoice === "Paper"
         ) {
-            console.log(`You win ${humanChoice} beats ${pcChoice}`);
+            gameOutput.textContent = `You win ${humanChoice} beats ${pcChoice}`;
             humanScore++
             scoreUpdate()
             return 
         } else if (humanChoice === pcChoice) {
-            console.log("tie")
+            gameOutput.textContent = "Tie"
             return
         } else {
-            console.log(`you lose ${pcChoice} beats ${humanChoice}`);
+            gameOutput.textContent = `You lose ${pcChoice} beats ${humanChoice}`;
             pcScore++
             scoreUpdate()
             return 
