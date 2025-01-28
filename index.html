@@ -19,42 +19,43 @@
 </style>
 </head>
 <body>
+
 <div id="rps-menu">
-<button id="rock-btn">Rock</button> 
-<button id="paper-btn">Paper</button>
-<button id="scissors-btn">Scissors</button>
+    <button id="rock-btn">Rock</button> 
+    <button id="paper-btn">Paper</button>
+    <button id="scissors-btn">Scissors</button>
 </div>
+
 <script>
     const scissors = document.querySelector("#scissors-btn")
     const paper = document.querySelector("#paper-btn")
     const rock = document.querySelector("#rock-btn")
     const rpsMenu = document.querySelector("#rps-menu")
 
-    rpsMenu.addEventListener("click", (event) => {
-        let target = event.target
 
-         switch(target.id) {
-            case 'scissors': 
-                console.log("scissors button pressed")
-                break;
-            case 'paper':
-                console.log("paper button was pressed")
-                break;
-            case 'rock':
-                console.log("rock button was pressed")
-                break;
-         }
-    });
+    // No caught errors, yet does not execute code
+    scissors.addEventListener("click", (e) => {
+        let pcSelection = getComputerChoice()
+        let humanSelection = "scissors"
+        playRound(humanSelection, pcSelection)
+    })
 
-    
+    paper.addEventListener("click", (e) => {
+        let pcSelection = getComputerChoice()
+        let humanSelection = "paper"
+        playRound(humanSelection, pcSelection)
+    })
+
+    rock.addEventListener("click", (e) => {
+        let pcSelection = getComputerChoice()
+        let humanSelection = "rock"
+        playRound(humanSelection, pcSelection)
+    })
+
     function getComputerChoice() {
     const rpsArray = ["rock", "paper", "scissors"]
     const randNum = Math.floor(Math.random() * 3)
     return rpsArray[randNum];
-    }
-    
-    function getHumanChoice() { 
-    return prompt("Choose wisely").toLowerCase()
     }
     
     humanScore = 0
