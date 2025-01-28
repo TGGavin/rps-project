@@ -132,13 +132,13 @@
 
     function gameOver() {
             if (humanScore === 5) {
-            gameOutput.textContent = "You win! press a button again to begin new round"
+            gameOutput.textContent = "You win! press a button again to begin new game"
             humanScore = 0
             pcScore = 0
             scoreUpdate()
             return;
      } else if (pcScore === 5) {
-            gameOutput.textContent = "You lose! press a button again to begin new round"
+            gameOutput.textContent = "You lose! press a button again to begin new game"
             humanScore = 0
             pcScore = 0
             scoreUpdate()
